@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 function HomeScreen() {
 
   const searchData = useSelector(state => state.searchData)
-  const {error, loading, data} = searchData
+  const {error, data} = searchData
   
 
   useEffect(() => {
@@ -14,10 +14,10 @@ function HomeScreen() {
 
   return (
     <div>
-      {data.length!==0 && (<h1 className='mb-5'>Product Name: {data[0].product_title}</h1>)}
-      <Table striped className='border '>
+      {!error && data.length!==0 && (<h1 className='mb-5'>Product Name: {data[0].product_title}</h1>)}
+      <Table striped className='border'>
         <thead >
-          <tr className>
+          <tr>
             <th>#</th>
             <th>star rating</th>
             <th>customer_id</th>
@@ -27,7 +27,7 @@ function HomeScreen() {
           </tr>
         </thead>
         <tbody>
-          {data.map((d,i) => (
+          {!error && data.map((d,i) => (
             <tr>
               <td>{i+1}</td>
               <td>{d.star_rating}</td>
