@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Navbar , Container,  } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import Form from 'react-bootstrap/Form';
@@ -14,7 +14,7 @@ function Header() {
 
     const searchEvent = () => {
         console.log("we are inside function");
-        dispatch(fetchData('Amazon_Electronics', searchInput))
+        dispatch(fetchData(searchInput))
     }
 
     return (
@@ -27,7 +27,7 @@ function Header() {
                     }}
                 >
                     <LinkContainer to='/'>
-                        <Navbar.Brand>DSD Project</Navbar.Brand>
+                        <Navbar.Brand>&#9733; Top Reviews &#9733;</Navbar.Brand>
                     </LinkContainer>
 
                     <Container className='w-50 d-flex flex-nowrap'
